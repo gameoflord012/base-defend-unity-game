@@ -5,9 +5,14 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    public float healthPercentage = 1f;
+    private float healthPercentage = 1f;
 
     RectTransform rectTransform;
+
+    public void SetHealthPercent(float percent)
+    {
+        healthPercentage = percent;
+    }
 
     private void Start()
     {

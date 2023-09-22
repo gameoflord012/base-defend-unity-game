@@ -11,12 +11,14 @@ public class Human : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
     Transform model;
+    new Rigidbody2D rigidbody2D;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
         model = transform.Find("model");
     }
 
@@ -45,9 +47,10 @@ public class Human : MonoBehaviour
             moveDir.y += 1;
         }
 
-        transform.position += moveDir * speed * Time.deltaTime;
+        // transform.position += moveDir * speed * Time.deltaTime;
+        rigidbody2D.velocity = moveDir.normalized * speed * Time.deltaTime;
 
-        if(moveDir.x != 0)
+        if (moveDir.x != 0)
         {
             model.localScale = new Vector3(moveDir.x < 0 ? -1 : 1, model.localScale.y, model.localScale.z);
         }

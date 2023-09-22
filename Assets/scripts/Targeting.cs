@@ -38,6 +38,7 @@ public class Targeting : MonoBehaviour
 
     private void OnValidate()
     {
-        Debug.LogWarning("healthBar is null");
+        if(healthBar == null)
+            Debug.LogWarning("healthBar is null", gameObject);
     }
 }

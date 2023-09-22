@@ -12,6 +12,7 @@ public class Human : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Transform model;
     new Rigidbody2D rigidbody2D;
+    EffectController effectController;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Human : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        effectController = GetComponentInChildren<EffectController>();
         model = transform.Find("model");
     }
 
@@ -45,6 +47,11 @@ public class Human : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDir.y += 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            effectController.PlayEffect("splash");
         }
 
         // transform.position += moveDir * speed * Time.deltaTime;

@@ -63,11 +63,13 @@ public class Attacker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        targets.Add(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
+        if (collision.tag == "body colider")
+            targets.Add(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        targets.Remove(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
+        if(collision.tag == "body colider")
+            targets.Remove(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Targeting : MonoBehaviour
 {
@@ -13,10 +14,16 @@ public class Targeting : MonoBehaviour
 
     [SerializeField] HealthBar healthBar;
 
-    public void UpdateHealth(float damage)
+    public UnityEvent<Attacker> onTargetGetAttacked;
+    public UnityEvent<Vector2> onGetAttackDirection;
+
+    public void AttackTarget(Attacker attacker)
     {
-        if (health < damage) health = 0;
-        else if (damage <= health) health -= damage;
+        if (health < attacker.GetAttackDamage()) health = 0;
+        else if (attacker.GetAttackDamage() <= health) health -= attacker.GetAttackDamage();
+
+        onTargetGetAttacked.Invoke(attacker);
+        onGetAttackDirection.Invoke(this.transform.position - attacker.transform.position);
 
         UpdatHealthBar();
     }

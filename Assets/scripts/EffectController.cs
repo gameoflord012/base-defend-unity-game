@@ -6,7 +6,7 @@ public class EffectController : MonoBehaviour
 {
     public void PlayEffect(string effectName)
     {
-        transform.Find(effectName).GetComponent<Animator>().SetTrigger("trigger");
+        transform.Find(effectName).GetComponent<EffectPlayer>().PlayEffect();
     }
 
     private void Start()

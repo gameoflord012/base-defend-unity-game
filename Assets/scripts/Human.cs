@@ -49,13 +49,8 @@ public class Human : MonoBehaviour
             moveDir.y += 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            effectController.PlayEffect("splash");
-        }
-
         // transform.position += moveDir * speed * Time.deltaTime;
-        rigidbody2D.velocity = moveDir.normalized * speed * Time.deltaTime;
+        rigidbody2D.velocity = moveDir.normalized * speed;
 
         if (moveDir.x != 0)
         {

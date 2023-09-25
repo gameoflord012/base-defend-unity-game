@@ -76,6 +76,8 @@ public class MovementController2D : MonoBehaviour
     List<Vector2> pathLeftToGo= new List<Vector2>();
     [SerializeField] bool drawDebugLines;
 
+    [SerializeField] float agentRadius = 0.4999f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -165,9 +167,9 @@ public class MovementController2D : MonoBehaviour
                 if (i == 0 && j == 0) continue;
 
                 Vector2 dir = new Vector2(i, j)*gridSize;
-                if (!Physics2D.Linecast(pos,pos+dir, obstacles))
+                if (Passable(pos, pos + dir))
                 {
-                    neighbours.Add(GetClosestNode( pos + dir), dir.magnitude);
+                    neighbours.Add(GetClosestNode(pos + dir), dir.magnitude);
                 }
             }
 
@@ -179,15 +181,14 @@ public class MovementController2D : MonoBehaviour
     List<Vector2> ShortenPath(List<Vector2> path)
     {
         List<Vector2> newPath = new List<Vector2>();
-        
+
         for (int i=0;i<path.Count;i++)
         {
             newPath.Add(path[i]);
             for (int j=path.Count-1;j>i;j-- )
             {
-                if (!Physics2D.Linecast(path[i],path[j], obstacles))
+                if(Passable(path[i],path[j]))
                 {
-                    
                     i = j;
                     break;
                 }
@@ -196,6 +197,11 @@ public class MovementController2D : MonoBehaviour
         }
         newPath.Add(path[path.Count - 1]);
         return newPath;
+    }
+
+    bool Passable(Vector2 source, Vector2 dest)
+    {
+        return !Physics2D.CircleCast(source, agentRadius, dest - source, (dest-source).magnitude, obstacles);
     }
 
     private void OnDrawGizmos()
@@ -208,5 +214,7 @@ public class MovementController2D : MonoBehaviour
 
             last = next;
         }
+
+        Gizmos.DrawSphere(transform.position, agentRadius);
     }
 }

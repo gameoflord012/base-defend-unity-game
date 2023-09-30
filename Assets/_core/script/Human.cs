@@ -2,17 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Human : MonoBehaviour
 {
     [SerializeField]
     public float speed = 0;
 
+    public UnityEvent onFigureStartMoving;
+    public UnityEvent onFigureStopMoving;
+    public UnityEvent onFigrueJumping;
+
     Animator animator;
     SpriteRenderer spriteRenderer;
     Transform model;
     new Rigidbody2D rigidbody2D;
     EffectController effectController;
+
+    bool isFigureMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +56,11 @@ public class Human : MonoBehaviour
             moveDir.y += 1;
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            onFigrueJumping.Invoke();
+        }
+
         // transform.position += moveDir * speed * Time.deltaTime;
         rigidbody2D.velocity = moveDir.normalized * speed;
 
@@ -57,6 +69,21 @@ public class Human : MonoBehaviour
             model.localScale = new Vector3(moveDir.x < 0 ? -1 : 1, model.localScale.y, model.localScale.z);
         }
 
-        animator.SetBool("isMoving", moveDir.magnitude > 0);
+        if(!isFigureMoving)
+        {
+            if(moveDir.magnitude > 0)
+            {
+                isFigureMoving = true;
+                onFigureStartMoving.Invoke();
+            }
+        }
+        else
+        {
+            if(Mathf.Approximately(moveDir.magnitude, 0))
+            {
+                isFigureMoving = false;
+                onFigureStopMoving.Invoke();
+            }
+        }
     }
 }

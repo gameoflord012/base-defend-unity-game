@@ -34,6 +34,37 @@ public class Human : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 moveDir = UpdateMovement();
+
+        // transform.position += moveDir * speed * Time.deltaTime;
+        rigidbody2D.velocity = moveDir.normalized * speed;
+
+        if (moveDir.x != 0)
+        {
+            model.localScale = new Vector3(moveDir.x < 0 ? -1 : 1, model.localScale.y, model.localScale.z);
+        }
+
+        if (!isFigureMoving)
+        {
+            if (moveDir.magnitude > 0)
+            {
+                isFigureMoving = true;
+                onFigureStartMoving.Invoke();
+            }
+        }
+        else
+        {
+            bool isStopping = Mathf.Approximately(moveDir.magnitude, 0);
+            if (isStopping)
+            {
+                isFigureMoving = false;
+                onFigureStopMoving.Invoke();
+            }
+        }
+    }
+
+    private static Vector3 UpdateMovement()
+    {
         Vector3 moveDir = Vector2.zero;
 
         if (Input.GetKey(KeyCode.A))
@@ -56,34 +87,6 @@ public class Human : MonoBehaviour
             moveDir.y += 1;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            onFigrueJumping.Invoke();
-        }
-
-        // transform.position += moveDir * speed * Time.deltaTime;
-        rigidbody2D.velocity = moveDir.normalized * speed;
-
-        if (moveDir.x != 0)
-        {
-            model.localScale = new Vector3(moveDir.x < 0 ? -1 : 1, model.localScale.y, model.localScale.z);
-        }
-
-        if(!isFigureMoving)
-        {
-            if(moveDir.magnitude > 0)
-            {
-                isFigureMoving = true;
-                onFigureStartMoving.Invoke();
-            }
-        }
-        else
-        {
-            if(Mathf.Approximately(moveDir.magnitude, 0))
-            {
-                isFigureMoving = false;
-                onFigureStopMoving.Invoke();
-            }
-        }
+        return moveDir;
     }
 }

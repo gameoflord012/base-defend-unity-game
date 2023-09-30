@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &159237507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2560239685539472733, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+  m_PrefabInstance: {fileID: 774261553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8084f23c6977fa48a9c7482e884b746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &161433116
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +235,7 @@ MonoBehaviour:
     m_Bits: 2147483648
   searchShortcut: 1
   snapToGrid: 0
-  maxDistanceBetween: 100
+  maxDistanceBetween: 1
   rd2d: {fileID: 703129303}
   agentCollider: {fileID: 1366501255}
 --- !u!1 &358843488
@@ -719,6 +730,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036206301649745381, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 857ef37c7ed92cb4a98f419269b3f5aa, type: 2}
     - target: {fileID: 2463871358355335967, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
       propertyPath: m_Name
       value: wooden sword
@@ -726,6 +741,94 @@ PrefabInstance:
     - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
       propertyPath: speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159237507}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159237507}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TriggerJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159237507}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetIsMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetIsMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AnimatorController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigrueJumping.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStopMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491173318643306819, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
+      propertyPath: onFigureStartMoving.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4896642547287250495, guid: c6e231d2f7ee2a2469a29923444f39b1, type: 3}
       propertyPath: m_Name
@@ -14844,6 +14947,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816858429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5535417398275759430, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+  m_PrefabInstance: {fileID: 1670472089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8084f23c6977fa48a9c7482e884b746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &900947094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3216224147282636324, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
@@ -14862,12 +14976,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 412807167}
-  pathFinder: {fileID: 328247760}
+  pathFinder: {fileID: 0}
   rd2d: {fileID: 703129303}
+  onFigureStartJumping:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 816858429}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: TriggerJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   waypointOffsetThreshold: 0.05
-  maxDistance: 1
-  restDuration: 1
-  rescanDuration: 0.5
+  travelDuration: 1
+  restDuration: 0.7
+  rescanDuration: 0.1
 --- !u!4 &1022076173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 360984376513579887, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
@@ -15049,23 +15178,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7248
+      value: 1.5745
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7463601
+      value: 1.5745
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.7248
+      value: 1.5745
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2612698144821027652, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15179,6 +15308,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.48074546
       objectReference: {fileID: 0}
+    - target: {fileID: 6988501155848230798, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7005160664668098046, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 598cd5bf6e745334c9de353ea6adb781, type: 2}
     - target: {fileID: 8775594349478341251, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: m_BodyType
       value: 0

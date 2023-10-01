@@ -15,8 +15,14 @@ public class Targeting : MonoBehaviour
     [SerializeField] HealthBar healthBar;
 
     public UnityEvent<Attacker> onTargetGetAttacked;
-    public UnityEvent<Vector2> onGetAttackDirection;
     public UnityEvent onHealthReachZero;
+
+    Vector2 lastAttackedDirection;
+
+    public Vector2 GetLastAttackedDirection()
+    {
+        return lastAttackedDirection;
+    }
 
     public void AttackTarget(Attacker attacker)
     {
@@ -28,7 +34,7 @@ public class Targeting : MonoBehaviour
         else health -= attacker.GetAttackDamage();
 
         onTargetGetAttacked.Invoke(attacker);
-        onGetAttackDirection.Invoke(this.transform.position - attacker.transform.position);
+        lastAttackedDirection = transform.position - attacker.transform.position;
 
         UpdatHealthBar();
     }

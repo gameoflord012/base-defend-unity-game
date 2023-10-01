@@ -5,17 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TargetGetAttackedSequence : MonoBehaviour
+public class TargetGetAttackedSequence : SequenceBase
 {
     [SerializeField] Targeting theTarget;
-
-    [SerializeField] UnityEvent onSequencePlay;
 
     EnemyController controller;
     AddForce addForce;
     ColorChanger colorChanger;
-
-    Vector2 lastAttackedDirection;
 
     private void Start()
     {
@@ -23,32 +19,17 @@ public class TargetGetAttackedSequence : MonoBehaviour
         colorChanger = GetComponent<ColorChanger>();
         controller = transform.root.GetComponentInChildren<EnemyController>();
     }
-    private void OnEnable()
-    {
-        theTarget.onGetAttackDirection.AddListener(SetLastAttackedDirection);
-    }
-
-    private void OnDisable()
-    {
-        theTarget.onGetAttackDirection.RemoveListener(SetLastAttackedDirection);
-    }
-
-    public void SetLastAttackedDirection(Vector2 last)
-    {
-        lastAttackedDirection = last;
-    }
     public void PlaySequence()
     {
-        onSequencePlay.Invoke();
-        StartCoroutine(Sequence());
+        StartCoroutine(GetSequence());
         StartCoroutine(colorChanger.ChangeColor());
     }
 
-    IEnumerator Sequence()
+    protected override IEnumerator SequenceImplementation()
     {
         controller.enabled = false;
         yield return new WaitForNextFrameUnit();
-        addForce.Add(lastAttackedDirection);
+        addForce.Add(theTarget.GetLastAttackedDirection());
         yield return new WaitForSeconds(1f);
         controller.enabled = true;
     }

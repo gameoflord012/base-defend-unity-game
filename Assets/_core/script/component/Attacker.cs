@@ -8,12 +8,10 @@ using UnityEngine.PlayerLoop;
 
 public class Attacker : MonoBehaviour
 {
-    [SerializeField]
-    float attackDamage = 10;
-
-    [SerializeField]
-    float attackDuration = 0.5f;
-    float attackTimer = 100;
+    [SerializeField] float attackDamage = 10;
+    [SerializeField] float attackDuration = 0.5f;
+    [SerializeField] float attackTimer = 100;
+    [SerializeField] ColliderBroadcaster colliderBroadcaster;
 
     HashSet<Targeting> targets = new HashSet<Targeting>();
 
@@ -61,15 +59,27 @@ public class Attacker : MonoBehaviour
         attackTimer += Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnEnable()
     {
-        if (collision.tag == Tags.target_collider)
+        colliderBroadcaster.onColliderEnter2D.AddListener(AddTargetEnterTrigger);
+        colliderBroadcaster.onColliderExit2D.AddListener(RemoveTargetExitTrigger);
+    }
+
+    private void OnDisable()
+    {
+        colliderBroadcaster.onColliderEnter2D.RemoveListener(AddTargetEnterTrigger);
+        colliderBroadcaster.onColliderExit2D.RemoveListener(RemoveTargetExitTrigger);
+    }
+
+    private void AddTargetEnterTrigger(Collider2D source, Collider2D collision)
+    {
+        if (collision.CompareTag(Tags.target_collider))
             targets.Add(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void RemoveTargetExitTrigger(Collider2D source, Collider2D collision)
     {
-        if(collision.tag == Tags.target_collider)
+        if (collision.CompareTag(Tags.target_collider))
             targets.Remove(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
     }
 }

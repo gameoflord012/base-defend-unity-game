@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptySequence : MonoBehaviour
+public class EmptySequence : SequenceBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override IEnumerator SequenceImplementation()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        throw new System.NotImplementedException();
     }
 }

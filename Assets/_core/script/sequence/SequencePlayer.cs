@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SequenceController : MonoBehaviour
+public class SequencePlayer : MonoBehaviour
 {
     [SerializeField] UnityEvent onSequencesStartToPlay;
     [SerializeField] List<SequenceBase> sequences;

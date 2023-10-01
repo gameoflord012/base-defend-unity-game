@@ -23,13 +23,20 @@ public class EnemyController : MonoBehaviour
 
     float rescanTimer = 100;
     float restTimer = 100;
-
     bool isJumping = false;
 
 
     private void Start()
     {
         pathFinder = pathFinder ? pathFinder : GetComponentInChildren<MovementController2D>();
+    }
+
+    private void OnDisable()
+    {
+        RenewTimer(); 
+        thePath.Clear();
+        rd2d.velocity = Vector2.zero;
+        isJumping = false;
     }
 
     private void Update()
@@ -69,6 +76,12 @@ public class EnemyController : MonoBehaviour
         UpdateTimer();
     }
 
+    private void RenewTimer()
+    {
+        rescanTimer = 100;
+        restTimer = 100;
+    }
+
     private Vector2 GetCurrentDest()
     {
         return thePath[0];
@@ -79,7 +92,6 @@ public class EnemyController : MonoBehaviour
         rescanTimer += Time.deltaTime;
         restTimer += Time.deltaTime;
     }
-
     private void RescanNewPath()
     {
         if (thePath.Count > 0)

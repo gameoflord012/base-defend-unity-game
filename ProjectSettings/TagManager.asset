@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - body colider
+  - target_collider
   layers:
   - Default
   - TransparentFX

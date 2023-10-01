@@ -16,11 +16,16 @@ public class Targeting : MonoBehaviour
 
     public UnityEvent<Attacker> onTargetGetAttacked;
     public UnityEvent<Vector2> onGetAttackDirection;
+    public UnityEvent onHealthReachZero;
 
     public void AttackTarget(Attacker attacker)
     {
-        if (health < attacker.GetAttackDamage()) health = 0;
-        else if (attacker.GetAttackDamage() <= health) health -= attacker.GetAttackDamage();
+        if (health <= attacker.GetAttackDamage())
+        {
+            health = 0;
+            onHealthReachZero.Invoke();
+        }
+        else health -= attacker.GetAttackDamage();
 
         onTargetGetAttacked.Invoke(attacker);
         onGetAttackDirection.Invoke(this.transform.position - attacker.transform.position);

@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2351240458636366335}
   m_Layer: 0
-  m_Name: helper
+  m_Name: sequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

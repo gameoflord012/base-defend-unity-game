@@ -76,6 +76,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293088565394912976}
+  - component: {fileID: 353577531548570728}
   - component: {fileID: 4101276990083271256}
   - component: {fileID: 7455406997602601715}
   - component: {fileID: 5448938225744007147}
@@ -102,6 +103,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 360984376513579887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &353577531548570728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725699860222762554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad36533ee7e58934586b6e6a65e76a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSequencesStartToPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  sequences:
+  - {fileID: 4101276990083271256}
+  - {fileID: 5068439284932788983}
 --- !u!114 &4101276990083271256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803608c83f9aa8e48add06d8ca5e1fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theTarget: {fileID: 4561667522730934961}
   onSequencePlay:
     m_PersistentCalls:
       m_Calls:
@@ -130,6 +148,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  theTarget: {fileID: 4561667522730934961}
 --- !u!114 &7455406997602601715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +174,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7f76d89977823294ab936a6a7c9ce7e1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -252,6 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9370e58036d2afd4592c1cc4ff631397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSequencePlay:
+    m_PersistentCalls:
+      m_Calls: []
   duration: 0.2
   frequencyPerSecond: 10
   destinationColor: {r: 1, g: 0, b: 0, a: 1}
@@ -265,6 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2615767530821848381}
+  - component: {fileID: 7925866587018048085}
   m_Layer: 0
   m_Name: die
   m_TagString: Untagged
@@ -289,6 +312,82 @@ Transform:
   - {fileID: 1198431355070711077}
   m_Father: {fileID: 360984376513579887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7925866587018048085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473044322701111441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad36533ee7e58934586b6e6a65e76a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSequencesStartToPlay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6826422102056321560}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4526345175832868654}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8775594349478341251}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6922113601198272579}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7806740980630729824}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  sequences: []
 --- !u!1 &4413781699759627614
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +430,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 80387170d9142d842b82be8fa25d48ce, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 03291705fcf0e3346a3bb98b3e739cfe, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -459,8 +558,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03291705fcf0e3346a3bb98b3e739cfe, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 80387170d9142d842b82be8fa25d48ce, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -597,7 +696,7 @@ ParticleSystem:
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -5703,9 +5802,9 @@ MonoBehaviour:
   onTargetGetAttacked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4101276990083271256}
-        m_TargetAssemblyTypeName: TargetGetAttackedSequence, Assembly-CSharp
-        m_MethodName: PlaySequence
+      - m_Target: {fileID: 353577531548570728}
+        m_TargetAssemblyTypeName: SequenceController, Assembly-CSharp
+        m_MethodName: PlaySequences
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5715,51 +5814,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onGetAttackDirection:
-    m_PersistentCalls:
-      m_Calls: []
   onHealthReachZero:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4526345175832868654}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6826422102056321560}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8775594349478341251}
-        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
-        m_MethodName: Sleep
+      - m_Target: {fileID: 7925866587018048085}
+        m_TargetAssemblyTypeName: SequenceController, Assembly-CSharp
+        m_MethodName: PlaySequences
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

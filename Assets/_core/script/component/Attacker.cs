@@ -12,11 +12,13 @@ public class Attacker : MonoBehaviour
     [SerializeField] float attackDuration = 0.5f;
     [SerializeField] float attackTimer = 100;
     [SerializeField] ColliderBroadcaster colliderBroadcaster;
+    [SerializeField] bool autoAttack;
 
     HashSet<Targeting> targets = new HashSet<Targeting>();
 
     public UnityEvent onStartAttack;
     public UnityEvent onStopAttack;
+    public UnityEvent<Targeting> onTargetEnterTrigger;
 
     bool canAttack = true;
 
@@ -41,22 +43,29 @@ public class Attacker : MonoBehaviour
             }
 
             canAttack = true;
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                attackTimer = 0;
-
-                canAttack = false;
-                onStartAttack.Invoke();
-
-                foreach (var target in GetTargetings())
-                {
-                    target.AttackTarget(this);
-                }
-            }
+        if(autoAttack && canAttack && targets.Count > 0)
+        {
+            AttackTargets();
         }
 
         attackTimer += Time.deltaTime;
+    }
+
+    public void AttackTargets()
+    {
+        if (!canAttack) return;
+
+        attackTimer = 0;
+
+        canAttack = false;
+        onStartAttack.Invoke();
+
+        foreach (var target in GetTargetings())
+        {
+            target.AttackTarget(this);
+        }
     }
 
     private void OnEnable()
@@ -74,7 +83,11 @@ public class Attacker : MonoBehaviour
     private void AddTargetEnterTrigger(Collider2D source, Collider2D collision)
     {
         if (collision.CompareTag(Tags.target_collider))
-            targets.Add(collision.attachedRigidbody.GetComponentInChildren<Targeting>());
+        {
+            var targeting = collision.attachedRigidbody.GetComponentInChildren<Targeting>();
+            targets.Add(targeting);
+            onTargetEnterTrigger?.Invoke(targeting);
+        }
     }
 
     private void RemoveTargetExitTrigger(Collider2D source, Collider2D collision)

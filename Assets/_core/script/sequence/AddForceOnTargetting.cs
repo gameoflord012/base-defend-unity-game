@@ -22,10 +22,14 @@ public class AddForceOnTargetting : SequenceBase
 
     protected override IEnumerator SequenceImplementation()
     {
-        controller.enabled = false;
+        if(controller != null)
+            controller.enabled = false;
+
         yield return new WaitForNextFrameUnit();
         addForce.Add(theTarget.GetLastAttackedDirection());
         yield return new WaitForSeconds(1f);
-        controller.enabled = true;
+
+        if (controller != null)
+            controller.enabled = true;
     }
 }

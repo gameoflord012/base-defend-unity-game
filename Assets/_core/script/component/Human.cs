@@ -63,7 +63,7 @@ public class Human : MonoBehaviour
         }
     }
 
-    private static Vector3 UpdateMovement()
+    private Vector3 UpdateMovement()
     {
         Vector3 moveDir = Vector2.zero;
 
@@ -85,6 +85,11 @@ public class Human : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             moveDir.y += 1;
+        }
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            GetComponent<Attacker>().AttackTargets();
         }
 
         return moveDir;

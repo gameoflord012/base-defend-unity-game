@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TargetGetAttackedSequence : SequenceBase
+public class AddForceOnTargetting : SequenceBase
 {
     [SerializeField] Targeting theTarget;
 
@@ -18,11 +18,6 @@ public class TargetGetAttackedSequence : SequenceBase
         addForce = GetComponent<AddForce>();
         colorChanger = GetComponent<ColorChanger>();
         controller = transform.root.GetComponentInChildren<EnemyController>();
-    }
-    public void PlaySequence()
-    {
-        StartCoroutine(GetSequence());
-        StartCoroutine(colorChanger.ChangeColor());
     }
 
     protected override IEnumerator SequenceImplementation()

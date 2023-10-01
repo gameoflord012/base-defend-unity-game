@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TerrainUtils;
 
-public class ColorChanger : MonoBehaviour
+public class ColorChanger : SequenceBase
 {
     [SerializeField] float duration;
     [SerializeField] float frequencyPerSecond;
@@ -18,11 +18,11 @@ public class ColorChanger : MonoBehaviour
         originalColor = sprite.color;
     }
 
-    public IEnumerator ChangeColor()
+    protected override IEnumerator SequenceImplementation()
     {
         float timer = 0;
 
-        while(timer < duration)
+        while (timer < duration)
         {
             sprite.color = destinationColor;
 

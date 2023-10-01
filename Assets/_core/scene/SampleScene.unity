@@ -465,9 +465,6 @@ MonoBehaviour:
   onTargetGetAttacked:
     m_PersistentCalls:
       m_Calls: []
-  onGetAttackDirection:
-    m_PersistentCalls:
-      m_Calls: []
   onHealthReachZero:
     m_PersistentCalls:
       m_Calls: []
@@ -15078,6 +15075,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1450811271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1725699860222762554, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+  m_PrefabInstance: {fileID: 1670472089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1450811274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4101276990083271256, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+  m_PrefabInstance: {fileID: 1670472089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803608c83f9aa8e48add06d8ca5e1fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450811275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5068439284932788983, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+  m_PrefabInstance: {fileID: 1670472089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9370e58036d2afd4592c1cc4ff631397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450811279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad36533ee7e58934586b6e6a65e76a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequences:
+  - {fileID: 1450811274}
+  - {fileID: 1450811275}
 --- !u!1001 &1670472089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15151,6 +15190,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 918073380}
     - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      propertyPath: onTargetGetAttacked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1450811279}
+    - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: onHealthReachZero.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -15159,8 +15202,16 @@ PrefabInstance:
       value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      propertyPath: onTargetGetAttacked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySequences
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: onHealthReachZero.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
       value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      propertyPath: onTargetGetAttacked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SequenceController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4561667522730934961, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
       propertyPath: onHealthReachZero.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -15193,7 +15244,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1725699860222762554, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1450811279}
   m_SourcePrefab: {fileID: 100100000, guid: 2967787a37a121d4ba87d06250443d56, type: 3}
 --- !u!4 &1678083151 stripped
 Transform:
